@@ -15,9 +15,8 @@ public class TranscriptionController {
 
     private final OpenAiAudioTranscriptionModel transcriptionModel;
 
-    public TranscriptionController(@Value("${spring.ai.openai.api-key}") String apiKey) {
-        OpenAiAudioApi openAiAudioApi =new OpenAiAudioApi(apiKey); ;
-        this.transcriptionModel =  new OpenAiAudioTranscriptionModel(this.openAiAudioApi);;
+    public TranscriptionController(OpenAiAudioTranscriptionModel transcriptionModel) {
+        this.transcriptionModel = transcriptionModel;
     }
 
 

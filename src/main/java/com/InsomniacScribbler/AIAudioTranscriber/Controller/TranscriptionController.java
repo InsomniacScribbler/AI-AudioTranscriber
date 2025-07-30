@@ -13,6 +13,12 @@ import javax.validation.Valid;
 @RequestMapping("/api/transcribe")
 public class TranscriptionController {
 
+//    private final OpenAiAudioTranscriptionModel TranscriptionModel;
+//    public TranscriptionController() {
+//        OpenAiAudioApi openAiAudioApi = new OpenAiAudioApi(System.getenv(spring.ai.openai.api-key));
+//        this.transcriptionModel = new OpenAiAudioTranscriptionModel(openAiAudioApi);
+//    }
+    //Not done this way cuz
     private final OpenAiAudioTranscriptionModel transcriptionModel;
 
     public TranscriptionController(OpenAiAudioTranscriptionModel transcriptionModel) {

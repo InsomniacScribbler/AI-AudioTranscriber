@@ -7,13 +7,18 @@ const AudioUploader = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
+    // Debug: Log API URL and warn if missing
+    console.log("API URL:", import.meta.env.VITE_API_URL);
+    const API_URL = import.meta.env.VITE_API_URL;
+    if (!API_URL) {
+        console.warn("API URL is undefined! Make sure VITE_API_URL is set.");
+    }
+
     const handleFileChange = (event) => {
         setFile(event.target.files[0]);
         setTranscription("");
         setError("");
     }
-
-    const API_URL = import.meta.env.VITE_API_URL;
 
     const HandleUpload = async () => {
         if (!file) {

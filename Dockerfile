@@ -1,9 +1,11 @@
-# Stage 1: Build the JAR
-FROM eclipse-temurin:21-jdk as build
+# Stage 1: Build the application
+FROM eclipse-temurin:21-jdk AS build
 
 WORKDIR /app
 
 COPY . .
+
+RUN chmod +x mvnw
 
 RUN ./mvnw clean package -DskipTests
 
@@ -12,8 +14,8 @@ FROM eclipse-temurin:21-jdk
 
 WORKDIR /app
 
-COPY --from=build /app/target/AIAudioTranscriber-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/*.jar app.jar
 
 EXPOSE 2222
 
-ENTRYPOINT ["java", "-jar", "app.jar", "--server.port=2222"]
+ENTRYPOINT ["java", "-jar", "app.jar"]

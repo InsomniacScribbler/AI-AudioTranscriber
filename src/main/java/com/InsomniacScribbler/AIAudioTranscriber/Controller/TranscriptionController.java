@@ -47,7 +47,7 @@ Example Code*/
         FileSystemResource audioFile = new FileSystemResource(tempFile);
         AudioTranscriptionPrompt transcriptionRequest = new AudioTranscriptionPrompt(audioFile, transcriptionOptions);
 
-        // Call the OpenAI transcription model
+        //--- Call the OpenAI transcription model and get the response---
         AudioTranscriptionResponse response = transcriptionModel.call(transcriptionRequest);
 
         // Delete temp file after use (optional cleanup)

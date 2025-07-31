@@ -1,4 +1,4 @@
-<img width="934" height="919" alt="image" src="https://github.com/user-attachments/assets/92999893-d7d8-424f-9d7f-621bb315687b" /># 🎤 AI Audio Transcriber
+# 🎤 AI Audio Transcriber
 
 Convert audio files to text in seconds using AI.  
 This is a full-stack application built with **React**, **Node.js**, and powered by **OpenAI's Whisper** via API.

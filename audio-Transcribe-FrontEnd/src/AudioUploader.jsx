@@ -13,6 +13,8 @@ const AudioUploader = () => {
         setError("");
     }
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const HandleUpload = async () => {
         if (!file) {
             setError("Please select an audio file to upload.");
@@ -25,7 +27,7 @@ const AudioUploader = () => {
         formData.append('file', file);
 
         try {
-            const response = await axios.post('http://localhost:2222/api/transcribe', formData, {
+            const response = await axios.post(`${API_URL}/api/transcribe`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

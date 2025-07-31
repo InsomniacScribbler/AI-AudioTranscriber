@@ -1,119 +1,122 @@
 # 🎤 AI Audio Transcriber
 
 Convert audio files to text in seconds using AI.  
-This is a full-stack application built with **React**, **Node.js**, and powered by **OpenAI's Whisper** via API.
+This is a full-stack application built with **React** and **Java Spring Boot**, powered by **OpenAI's Whisper** model via **Spring AI**.
 
-### 🌐 Live Demo
-[https://ai-audiotranscriber-1.onrender.com](https://ai-audiotranscriber-1.onrender.com)
-<img width="1299" height="831" alt="image" src="https://github.com/user-attachments/assets/820ab880-6038-47ee-8aa7-97a6a427fea1" />
+---
 
+## 🌐 Live Demo
+
+[🔗 Try it Live](https://ai-audiotranscriber-1.onrender.com)
+
+![UI Screenshot]() <img width="1299" height="831" alt="image" src="https://github.com/user-attachments/assets/1c4829c3-108f-4baa-b2f1-4786d22a6b4d" />
 
 ---
 
 ## 🚀 Features
 
-- 🎧 Upload `.mp3`, `.wav`, or any audio file
-- 🧠 Transcribe using OpenAI's Whisper model
-- ⚡ Instant transcription on the frontend
-- 🛡️ Form validation, loading states, and error handling
-- 📦 Deployed using Render (frontend + backend)
-
----
-
-## 📸 UI Preview
-
-> ![Preview](./screenshot.png) <!-- Replace with your actual screenshot path -->
+- 🎧 Upload `.mp3`, `.wav`, or other audio formats
+- 🧠 Transcription powered by OpenAI Whisper via Spring AI
+- ⚡ Instant results with smooth frontend experience
+- 🛡️ Robust error handling and loading states
+- ☁️ Deployed with Render (frontend + backend)
 
 ---
 
 ## 🛠 Tech Stack
 
-| Frontend      | Backend           | AI Service     |
-|---------------|-------------------|----------------|
-| React (Vite)  | Node.js + Express | OpenAI Whisper |
-| Axios         | Multer (file upload) |               |
-| TailwindCSS (optional) | CORS, dotenv    |               |
+| Frontend            | Backend                          | AI Service     |
+|---------------------|----------------------------------|----------------|
+| React (Vite)        | Java Spring Boot (Spring Web)    | OpenAI Whisper |
+| Axios               | Spring AI + Multipart File Upload|                |
+| CSS Modules / SCSS  | Spring Web, CORS, dotenv support |                |
 
 ---
 
 ## 📁 Project Structure
+```
+ai-audio-transcriber/
+├── client/ # React frontend
+│ ├── public/
+│ ├── src/
+│ │ └── components/
+│ │ └── AudioUploader.jsx
+│ └── .env # VITE_API_URL
+├── server/ # Spring Boot backend
+│ ├── src/main/java/com/...
+│ │ └── controller/AudioController.java
+│ │ └── service/WhisperService.java
+│ ├── src/main/resources/
+│ │ └── application.properties # OpenAI config
+│ └── pom.xml
+└── README.md
+```
+
+---
+
+## 📦 Getting Started
+
+### 1. Clone the repository
 
 ```bash
-ai-audio-transcriber/
-├── client/                  # React frontend
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   └── App.jsx
-│   └── .env                 # VITE_API_URL
-├── server/                  # Node.js backend
-│   ├── index.js
-│   └── routes/transcribe.js
-│   └── .env                 # OPENAI_API_KEY
-└── README.md
-📦 Getting Started
-1. Clone the Repo
-bash
-Copy
-Edit
 git clone https://github.com/your-username/ai-audio-transcriber.git
 cd ai-audio-transcriber
-2. Backend Setup
-bash
-Copy
-Edit
-cd server
-npm install
-Create .env file:
-env
-Copy
-Edit
-PORT=5000
-OPENAI_API_KEY=your_openai_api_key_here
-Then start the backend:
+```
+2. Backend (Spring Boot)
+Prerequisites:
 
-bash
-Copy
-Edit
-node index.js
-3. Frontend Setup
-bash
-Copy
-Edit
-cd ../client
+JDK 17+
+
+Maven or IDE like IntelliJ
+
+### Configure application.properties:
+```
+properties
+
+server.port=5000
+spring.ai.openai.api-key=your_openai_api_key
+spring.ai.openai.model.whisper=model-name-if-needed
+```
+Start Backend:
+```bash
+
+./mvnw spring-boot:run
+```
+3. Frontend (React)
+```bash
+
+cd client
 npm install
-Create .env file:
-env
-Copy
-Edit
+```
+
+### Create .env file:
+
+``` 
+.env
+
 VITE_API_URL=http://localhost:5000
-Start the frontend:
-
-bash
-Copy
-Edit
+```
+Start frontend:
+```bash
 npm run dev
-🌍 Deployment
-Hosted on Render
-Frontend: VITE_API_URL must be set in Render Environment Variables
+```
+## 🌍 Deployment
+### Deployed on Render:
 
-Backend: Requires OPENAI_API_KEY
+Frontend (Vite): Set `VITE_API_URL` in Render environment variables
 
-Make sure to:
+Backend (Spring Boot): Provide `spring.ai.openai.api-key` in environment
 
-Enable build commands for both services
+✔️ Enable CORS in your Spring Boot backend
+✔️ Set correct MIME types and headers for file upload
 
-Serve frontend via Vite’s dist/
+## 📸 UI Preview
 
-Allow CORS in backend
 
 🧠 Credits
-🧠 OpenAI Whisper API – Speech-to-Text model
+💡 OpenAI Whisper API
 
-🎨 UI inspired by modern dark-themed tools
+⚙️ Built using Spring AI + React Vite
 
-⚙️ Built by Your Name
+🎨 Dark-themed UI inspired by modern design systems
 
-📜 License
-This project is licensed under the MIT License.
-See the LICENSE file for details.
